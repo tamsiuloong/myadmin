@@ -1,23 +1,28 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
-  </div>
+<div id="app">
+  <router-view></router-view>
+</div>
+
 </template>
 
 <script>
+
 export default {
-  name: 'App'
+  name: 'App',
+  components: {  },
+  methods: {
+    handleOpen(key, keyPath) {
+      console.log(key, keyPath);
+    },
+    handleClose(key, keyPath) {
+      console.log(key, keyPath);
+    }
+  }
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="less">
+  // 这里是坑啊，文件路径中好像不能用@符号
+  // 引入全局样式
+  @import "./assets/styles/global.less";
 </style>
