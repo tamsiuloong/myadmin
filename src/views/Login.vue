@@ -74,7 +74,7 @@
       return {
         form: {
           name: Cookies.get("userInfo") || "admin",
-          password: Cookies.get("passwordInfo") || "654321"
+          password: Cookies.get("passwordInfo") || "admin"
         },
         isMemery: false,
         rules: {
@@ -112,10 +112,11 @@
                 password: this.form.password
               }
             }).then(res => {
-              localStorage.userName = res.data.data.userName;
-              localStorage.userId = res.data.data.userId;
+              localStorage.userName = res.data.data.username;
+              localStorage.userId = res.data.data.id;
               Cookies.set("isLogin", "1", { expires: 7 });
-              this.getMenu();
+              this.$router.push("page1");
+//              this.getMenu();
             });
           } else {
             return false;

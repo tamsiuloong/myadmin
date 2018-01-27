@@ -18,7 +18,7 @@ Vue.config.productionTip = false
 Vue.prototype.$axios = axios
 
 // 上线全局请求配置
-axios.defaults.baseURL = '/api/v1/'
+axios.defaults.baseURL = 'http://localhost:8084/api/v1'
 // http request 拦截器
 axios.interceptors.request.use(
   config => {
