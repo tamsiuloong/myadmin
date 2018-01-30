@@ -17,14 +17,18 @@ Vue.config.productionTip = false
 
 Vue.prototype.$axios = axios
 
+
 // 上线全局请求配置
 axios.defaults.baseURL = 'http://localhost:8084/api/v1'
+// 允许携带cookie->解决cookie跨域问题
+axios.defaults.withCredentials=true
 // http request 拦截器
 axios.interceptors.request.use(
   config => {
-    if (config.method === 'post') {
-      config.headers['X-CSRF-TOKEN'] = Cookies.get('XSRF-TOKEN') // 让每个请求携带token--['X-Token']为自定义key 请根据实际情况自行修改
-    }
+    // if (config.method === 'post') {
+    //   config.headers['X-CSRF-TOKEN'] = Cookies.get('XSRF-TOKEN') // 让每个请求携带token--['X-Token']为自定义key 请根据实际情况自行修改
+    //   config.headers['Cookie'] =  Cookies.get('XSRF-TOKEN') // 让每个请求携带token--['X-Token']为自定义key 请根据实际情况自行修改
+    // }
     return config
   },
   error => {

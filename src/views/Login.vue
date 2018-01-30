@@ -114,9 +114,12 @@
             }).then(res => {
               localStorage.userName = res.data.data.username;
               localStorage.userId = res.data.data.id;
+              Cookies.set("XSRF-TOKEN",res.data.token, { expires: 7 });
               Cookies.set("isLogin", "1", { expires: 7 });
               this.$router.push("page1");
 //              this.getMenu();
+            }).catch(e=>{
+              this.$router.push("login");
             });
           } else {
             return false;
