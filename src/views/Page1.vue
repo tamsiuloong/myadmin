@@ -50,7 +50,7 @@ export default {
       xhrFields: {  withCredentials: true  },
       method: "get"
     }).then(res => {
-     this.tableData = res.data.list;
+     this.tableData = res.data.content;
     });
   }
 }

@@ -7,8 +7,7 @@ import Notfound from '@/views/Notfound'
 import Login from '@/views/Login'
 
 Vue.use(Router)
-
-export default new Router({
+const router = new Router({
   routes: [
     {
       path:'/login',
@@ -47,3 +46,4 @@ export default new Router({
     }
   ]
 })
+export default router
